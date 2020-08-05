@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8" style="margin:0 auto;">
+            <p>Tên: <span th:text="${province.name}"></span></p>
+            <p>Diện tích: <span th:text="${province.area}"></span></p>
+            <p>Dân số: <span th:text="${province.popular}"></span></p>
+            <p>GDB: <span th:text="${province.gdb}"></span></p>
+            <p>Mô tả: <span th:text="${province.description}"></span></p>
+        </div>
+
+    </div>
+    <a type="submit" class="btn btn-info mb-2" th:href="@{/}">Thoát</a>
+</div>
+
+<!--<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>-->
+
+<!--<script>-->
+<!--    $().ready(function() {-->
+<!--        $("#submit").validate({-->
+<!--            onfocusout: false,-->
+<!--            onkeyup: false,-->
+<!--            onclick: false,-->
+<!--            rules: {-->
+<!--                "province": {-->
+<!--                    required: true,-->
+
+<!--                }-->
+<!--            },-->
+<!--            messages: {-->
+<!--                "province":{-->
+<!--                    required:"Bắt buộc nhập tổng giá",-->
+<!--                }-->
+<!--            }-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+</body>
+</html>

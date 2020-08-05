@@ -54,4 +54,18 @@ public class ProvinceController {
         return "create-province-form";
     }
 
+
+    @GetMapping("/delete/{id}")
+    private String deleteProvince(@PathVariable Long id,Model theModel){
+//        Province deleteProvince=provinceServices.findOne(id);
+        provinceServices.remove(id);
+        theModel.addAttribute("provinces",provinceServices.findAll());
+        return "index";
+    }
+    @GetMapping("/detail/{id}")
+    private String detailProvince(@PathVariable Long id,Model theModel){
+        Province detailProvice=provinceServices.findOne(id);
+        theModel.addAttribute("province",detailProvice);
+        return "detail";
+    }
 }
