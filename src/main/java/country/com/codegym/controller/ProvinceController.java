@@ -35,7 +35,7 @@ public class ProvinceController {
             , Model theModel
     , @RequestParam Long country){
         if (theBinding.hasErrors()){
-
+            theModel.addAttribute("countries",countryServices.findAll());
             return "create-province-form";
         }
         Country setCountry=countryServices.findOne(country);
