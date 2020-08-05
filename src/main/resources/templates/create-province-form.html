@@ -28,12 +28,22 @@
                     <select class="form-control" id="quoc-gia" name="country">
 
                         <th:block th:each="row : ${countries}">
-                            <th:block th:if="${province.country.countryName == row.countryName}">
-                                <option th:value="${row.id}" th:text="${row.countryName}" selected></option>
+
+                            <th:block th:if="${province.country !=null}">
+                                <th:block th:if="${province.country.countryName == row.countryName}">
+                                    <option th:value="${row.id}" th:text="${row.countryName}" selected></option>
+                                </th:block>
+                                <th:block th:unless="${province.country.countryName == row.countryName}">
+                                    <option th:value="${row.id}" th:text="${row.countryName}"></option>
+                                </th:block>
                             </th:block>
-                            <th:block th:unless="${province.country.countryName == row.countryName}">
+
+                            <th:block th:unless="${province.country !=null}">
+
                                 <option th:value="${row.id}" th:text="${row.countryName}"></option>
+
                             </th:block>
+
                         </th:block>
 
                         <div th:if="${#fields.hasErrors('country')}"

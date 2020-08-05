@@ -21,16 +21,15 @@
                     <th scope="col">#</th>
                     <th scope="col">Thành phố</th>
                     <th scope="col">Quốc gia</th>
-                    <th scope="col" colspan="3" style="text-align: center">Action</th>
+                    <th scope="col" colspan="2" style="text-align: center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <th:block th:each="row : ${provinces}">
                     <tr>
                         <th scope="row" th:text="${row.id}"></th>
-                        <td th:text="${row.name}">Mark</td>
+                        <td ><a th:href="@{/province/detail/__${row.id}__}" th:text="${row.name}"></a></td>
                         <td th:text="${row.country.countryName}"></td>
-                        <td><a th:href="@{/province/detail/__${row.id}__}">Chi tiết</a></td>
                         <td><a th:href="@{/province/edit/__${row.id}__}">Sửa</a></td>
                         <td><a th:href="@{/province/delete/__${row.id}__}">Xóa</a></td>
                     </tr>
