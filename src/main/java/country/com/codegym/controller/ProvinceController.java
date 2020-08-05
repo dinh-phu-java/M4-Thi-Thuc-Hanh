@@ -1,5 +1,6 @@
 package country.com.codegym.controller;
 
+import country.com.codegym.model.Country;
 import country.com.codegym.model.Province;
 import country.com.codegym.services.country.ICountryServices;
 import country.com.codegym.services.province.IProvinceServices;
@@ -7,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -32,16 +30,28 @@ public class ProvinceController {
     }
 
     @PostMapping("/create")
-    public String createProvince(@Valid @ModelAttribute Province province
+    public String createProvince(@ModelAttribute Province province
             , BindingResult theBinding
-            ,Model theModel){
-        if (theBinding.hasErrors()){
+            , Model theModel
+    , @RequestParam Long country){
+//        if (theBinding.hasErrors()){
+//
+//            return "create-province-form";
+//        }
+        Country setCountry=countryServices.findOne(country);
 
-            return "create-province-form";
-        }
-
+        province.setCountry(setCountry);
         provinceServices.save(province);
 
+        theModel.addAttribute("provinces",provinceServices.findAll());
         return "index";
     }
+    @GetMapping("/edit/{id}")
+    private String editForm(@PathVariable Long id,Model theModel){
+        Province editProvince=provinceServices.findOne(id);
+        theModel.addAttribute("province",editProvince);
+        theModel.addAttribute("countries",countryServices.findAll());
+        return "create-province-form";
+    }
+
 }

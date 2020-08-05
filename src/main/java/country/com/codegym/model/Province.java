@@ -38,7 +38,6 @@ public class Province {
     @Column(name="description",columnDefinition = "TEXT")
     private String description;
 
-    @NotNull
     @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinColumn(name="country_id")
     private Country country;

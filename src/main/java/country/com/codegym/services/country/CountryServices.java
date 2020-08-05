@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CountryServices implements ICountryServices{
@@ -24,7 +25,12 @@ public class CountryServices implements ICountryServices{
 
     @Override
     public Country findOne(Long id) {
-        return null;
+        Optional<Country> optional=countryDAO.findById(id);
+        Country country=null;
+        if (optional.isPresent()){
+            country=optional.get();
+        }
+        return country;
     }
 
     @Override

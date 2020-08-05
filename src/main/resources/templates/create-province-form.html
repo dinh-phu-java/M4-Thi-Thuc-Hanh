@@ -11,6 +11,7 @@
     <div class="row">
         <div class="col-md-8" style="margin:0 auto;">
             <form th:action="@{/province/create}" method="post" th:object="${province}">
+                <input type="hidden" th:field="*{id}">
                 <div class="form-group">
                     <label for="ten">Tên</label>
                     <input type="text" class="form-control" id="ten" placeholder="Tên" th:field="*{name}">
@@ -24,10 +25,10 @@
 
                 <div class="form-group">
                     <label for="quoc-gia">Quốc gia</label>
-                    <select class="form-control" id="quoc-gia" th:field="*{country}">
-                        <option value="">Chọn quốc gia</option>
+                    <select class="form-control" id="quoc-gia" name="country">
+
                         <th:block th:each="row : ${countries}">
-                            <option th:value="${row.countryName}" th:text="${row.countryName}"></option>
+                            <option th:value="${row.id}" th:text="${row.countryName}"></option>
                         </th:block>
                         <div th:if="${#fields.hasErrors('country')}"
                              style="margin-bottom: 25px" class="text-danger">
