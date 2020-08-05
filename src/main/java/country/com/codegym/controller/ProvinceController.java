@@ -30,14 +30,14 @@ public class ProvinceController {
     }
 
     @PostMapping("/create")
-    public String createProvince(@ModelAttribute Province province
+    public String createProvince(@Valid @ModelAttribute Province province
             , BindingResult theBinding
             , Model theModel
     , @RequestParam Long country){
-//        if (theBinding.hasErrors()){
-//
-//            return "create-province-form";
-//        }
+        if (theBinding.hasErrors()){
+
+            return "create-province-form";
+        }
         Country setCountry=countryServices.findOne(country);
 
         province.setCountry(setCountry);

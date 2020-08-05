@@ -20,17 +20,17 @@ public class Province {
     private String name;
 
     @NotNull
-    @Min(value=1,message = "giá trị dương")
+    @Min(value=0,message = "giá trị dương")
     @Column(name="area")
     private double area;
 
     @NotNull
-    @Min(value=1,message = "giá trị dương")
+    @Min(value=0,message = "giá trị dương")
     @Column(name="popular")
     private double popular;
 
     @NotNull
-    @Min(value=1,message = "giá trị dương")
+    @Min(value=0,message = "giá trị dương")
     @Column(name="gdb")
     private double gdb;
 
