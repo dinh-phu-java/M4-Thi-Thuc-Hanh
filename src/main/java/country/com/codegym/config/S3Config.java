@@ -7,17 +7,11 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
+
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.data.web.config.EnableSpringDataWebSupport;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
 
 @Configuration
-@EnableWebMvc
-@ComponentScan("country.com.codegym.controller")
-@EnableJpaRepositories("country.com.codegym.dao")
-@EnableSpringDataWebSupport
 public class S3Config {
     @Value("${jsa.aws.access_key_id}")
     private String awsId;
