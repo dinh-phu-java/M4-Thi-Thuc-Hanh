@@ -38,6 +38,9 @@ public class Province {
     @Column(name="description",columnDefinition = "TEXT")
     private String description;
 
+    @Column(name="image")
+    private String image;
+
     @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinColumn(name="country_id")
     private Country country;
@@ -53,6 +56,8 @@ public class Province {
         this.country = country;
     }
 
+
+
     public Province(String name, double area, double popular, double gdb, String description, Country country) {
         this.name = name;
         this.area = area;
@@ -60,6 +65,24 @@ public class Province {
         this.gdb = gdb;
         this.description = description;
         this.country = country;
+    }
+
+    public Province(String name, double area, double popular, double gdb, String description, Country country,String image) {
+        this.name = name;
+        this.area = area;
+        this.popular = popular;
+        this.gdb = gdb;
+        this.description = description;
+        this.country = country;
+        this.image=image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getName() {
