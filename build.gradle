@@ -21,6 +21,11 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	compile group: 'org.hibernate', name: 'hibernate-validator', version: '6.0.12.Final'
+//	compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.106'
+	compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.834'
+
+
+
 }
 
 test {
